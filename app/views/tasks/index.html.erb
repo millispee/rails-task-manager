@@ -4,14 +4,17 @@
   <li>
     <div>
     <% if task.completed %>
-      <p>[x]</p>
+      <p>[x] <%= link_to task.title, task_path(task) %>
+        <%= link_to "delete", task_path(task), method: :delete, data: {confirm: "Are you shure?"}  %>
+      </p>
     <% else %>
-      <p>[ ]</p>
+      <p>[ ] <%= link_to task.title, task_path(task) %>
+        <%= link_to "delete", task_path(task), method: :delete, data: {confirm: "Are you shure?"}  %>
+      </p>
     <% end %>
     </div>
     <div>
-    <%= link_to task.title, task_path(task) %>
-    <%= link_to "delete", task_path(task), method: :delete, data: {confirm: "Are you shure?"}  %>
+
     </div>
   </li>
   <% end %>
